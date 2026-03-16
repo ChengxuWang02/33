@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>会议推进时间线</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background: #fff;
+    color: #222;
+    padding: 48px 40px 80px;
+    max-width: 780px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .sub { font-size: 13px; color: #999; margin-bottom: 36px; }
+
+  .tl {
+    position: relative;
+    padding-left: 96px;
+  }
+  .tl::before {
+    content: '';
+    position: absolute;
+    left: 72px;
+    top: 6px;
+    bottom: 0;
+    width: 2px;
+    background: #e5e7eb;
+  }
+
+  .item {
+    position: relative;
+    padding-bottom: 28px;
+  }
+  .item:last-child { padding-bottom: 0; }
+  .item:last-child .line-ext { display: none; }
+
+  .dot {
+    position: absolute;
+    left: -30px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #3b82f6;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #3b82f6;
+  }
+  .item.yun .dot { background: #f97316; box-shadow: 0 0 0 2px #f97316; }
+  .item.key .dot { background: #8b5cf6; box-shadow: 0 0 0 2px #8b5cf6; width: 12px; height: 12px; left: -31px; top: 5px; }
+
+  .date {
+    position: absolute;
+    left: -96px;
+    top: 1px;
+    width: 58px;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 700;
+    color: #555;
+  }
+
+  .title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .desc {
+    font-size: 13px;
+    color: #666;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 1px 7px;
+    border-radius: 4px;
+    margin-left: 6px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+  .tag.b { background: #eff6ff; color: #3b82f6; }
+  .tag.y { background: #fff7ed; color: #f97316; }
+  .tag.k { background: #f5f3ff; color: #8b5cf6; }
+
+  .price {
+    display: inline-block;
+    background: #fefce8;
+    color: #a16207;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-top: 4px;
+  }
+  .warn {
+    display: inline-block;
+    background: #fef2f2;
+    color: #dc2626;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-top: 4px;
+  }
+
+  [contenteditable]:focus {
+    outline: 2px solid #bfdbfe;
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  .hint {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 11px;
+    color: #aaa;
+    background: #f9fafb;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid #eee;
+  }
+
+  @media print { .hint { display: none; } }
+</style>
+</head>
+<body>
+
+<h1>学堂系统项目 · 会议推进时间线</h1>
+<p class="sub">2026.02.03 — 03.16 · 点击文字可编辑</p>
+
+<div class="tl">
+
+  <div class="item">
+    <div class="date">2/3</div>
+    <div class="dot"></div>
+    <div contenteditable="true">
+      <div class="title">北森初次交流 <span class="tag b">北森</span></div>
+      <div class="desc">了解北森系统全貌，介绍创达痛点，展示 AI 能力与飞书集成</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">2/26</div>
+    <div class="dot"></div>
+    <div contenteditable="true">
+      <div class="title">深度需求调研 <span class="tag b">北森</span></div>
+      <div class="desc">摸底培训规模（2,363 门课 / 73,000 题），目标 4.10 完成切换</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">3/4</div>
+    <div class="dot"></div>
+    <div contenteditable="true">
+      <div class="title">迁移方案讨论 <span class="tag b">北森</span></div>
+      <div class="desc">确认迁移项目 40-50 个，学习进度仅迁移"完成/未完成"状态</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">3/6</div>
+    <div class="dot"></div>
+    <div contenteditable="true">
+      <div class="title">北森首次报价 <span class="tag b">北森</span></div>
+      <div class="desc"><span class="price">报价 ¥498,000</span></div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">3/10</div>
+    <div class="dot"></div>
+    <div contenteditable="true">
+      <div class="title">迁移效果沟通 <span class="tag b">北森</span></div>
+      <div class="desc">演示迁移效果，课程/题库可入库；未完成课程进度无法迁移</div>
+    </div>
+  </div>
+
+  <div class="item yun">
+    <div class="date">3/10</div>
+    <div class="dot"></div>
+    <div contenteditable="true">
+      <div class="title">云学堂续约沟通 <span class="tag y">云学堂</span></div>
+      <div class="desc">报价与去年相同（&lt;20 万），免费升级 AI，赠 20 万 AI 豆，合同 4.19 到期</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">3/11</div>
+    <div class="dot"></div>
+    <div contenteditable="true">
+      <div class="title">北森实施费下调 <span class="tag b">北森</span></div>
+      <div class="desc">实施人天 100 → 90</div>
+    </div>
+  </div>
+
+  <div class="item yun">
+    <div class="date">3/12</div>
+    <div class="dot"></div>
+    <div contenteditable="true">
+      <div class="title">权限配置测试 <span class="tag y">云学堂</span></div>
+      <div class="desc">搭建 Demo 测试项目集模式，梳理地区管理员权限</div>
+    </div>
+  </div>
+
+  <div class="item key">
+    <div class="date">3/13</div>
+    <div class="dot"></div>
+    <div contenteditable="true">
+      <div class="title">北森价格谈判 <span class="tag k">关键</span></div>
+      <div class="desc">创达预算 ≤20 万/年 vs 北森底线 ≈40 万/年，差距一倍，讨论 3 年签约方案</div>
+    </div>
+  </div>
+
+  <div class="item key">
+    <div class="date">3/16</div>
+    <div class="dot"></div>
+    <div contenteditable="true">
+      <div class="title">北森回复：至少 5 周 <span class="tag k">关键</span></div>
+      <div class="desc"><span class="warn">切换时间不可控，云学堂 4.19 到期，窗口仅约 3 周</span></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="hint">✏️ 点击文字可直接编辑</div>
+
+</body>
+</html>
